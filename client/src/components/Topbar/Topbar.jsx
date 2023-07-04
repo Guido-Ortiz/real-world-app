@@ -9,7 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const Topbar = () => {
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box sx={{ border: '1px solid red', height: 'auto' }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
