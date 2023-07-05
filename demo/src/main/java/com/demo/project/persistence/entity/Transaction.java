@@ -17,8 +17,11 @@ public class Transaction {
     private Date date;
     private String type;
 
-    @Embedded
-    private TransactionAccount transactionAccount;
+    @Column(name = "source_account_id")
+    private String sourceAccountId;
+
+    @Column(name = "destination_account_id")
+    private String destinationAccountId;
 
     //getters, and setters
 
@@ -46,6 +49,22 @@ public class Transaction {
         this.date = date;
     }
 
+    public String getSourceAccountId() {
+        return sourceAccountId;
+    }
+
+    public void setSourceAccountId(String sourceAccountId) {
+        this.sourceAccountId = sourceAccountId;
+    }
+
+    public String getDestinationAccountId() {
+        return destinationAccountId;
+    }
+
+    public void setDestinationAccountId(String destinationAccountId) {
+        this.destinationAccountId = destinationAccountId;
+    }
+
     public String getType() {
         return type;
     }
@@ -54,11 +73,5 @@ public class Transaction {
         this.type = type;
     }
 
-    public TransactionAccount getTransactionAccount() {
-        return transactionAccount;
-    }
 
-    public void setTransactionAccount(TransactionAccount transactionAccount) {
-        this.transactionAccount = transactionAccount;
-    }
 }
