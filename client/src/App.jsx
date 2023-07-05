@@ -8,6 +8,9 @@ import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import { Stack } from '@mui/material';
 import MyAccount from './components/MyAccount/MyAccount';
+import Transfer from './components/Transfer/Transfer';
+import Notifications from './components/Notifications/Notifications';
+import CreateBankAccount from './components/BankAccounts/CreateBankAccount/CreateBankAccount';
 
 function App() {
 
@@ -28,7 +31,10 @@ function App() {
                   <Route path='/' element={<ProtectedRoutes />}>
                     <Route path='/' element={<Home />} />
                     <Route path='bankaccounts' element={<BankAccounts />} />
-                    <Route path='/personal' element={<MyAccount />} />
+                    <Route path='personal' element={<MyAccount />} />
+                    <Route path='transfer' element={<Transfer />} />
+                    <Route path='notifications' element={<Notifications />} />
+                    <Route path='bankaccounts/create' element={<CreateBankAccount />} />
                   </Route>
 
                 </Routes>

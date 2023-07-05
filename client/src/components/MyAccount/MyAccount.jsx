@@ -15,6 +15,7 @@ const MyAccount = () => {
             //border: '1px solid red',
             width: '90%', display: 'flex', flexDirection: 'column', padding: '20px', margin: '0 auto', marginTop: '20px'
         }}>
+            <Typography variant='h5' sx={{ marginBottom: '15px', color: '#1976d2' }}>My Account Movements</Typography>
             <Box sx={{
                 //border: '1px solid blue',
                 display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'
@@ -30,7 +31,9 @@ const MyAccount = () => {
                 {
                     movements.map(e => {
                         return (
-                            <Movements id={e.id} one={e.one} two={e.two} amount={e.amount} />
+                            <div key={e.id}>
+                                <Movements id={e.id} one={e.one} two={e.two} amount={e.amount} />
+                            </div>
                         )
                     })
                 }

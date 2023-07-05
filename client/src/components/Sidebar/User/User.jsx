@@ -9,7 +9,7 @@ const User = () => {
   return (
     <Stack direction='row' spacing={2} sx={{ 
         // border: '1px solid orange', 
-        padding: '10px' }}>
+        padding: '10px', marginTop: '5px', marginBottom: '20px' }}>
         <Avatar sx={{ width: 56, height: 56 }}>H</Avatar>
         <Stack direction='column'>
             <Typography variant='subtitle1'>{name}</Typography>

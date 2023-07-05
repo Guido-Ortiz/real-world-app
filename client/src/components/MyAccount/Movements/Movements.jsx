@@ -11,6 +11,7 @@ const Movements = ({ id, one, two, amount }) => {
                 //border: '1px solid fuchsia',
                 display: 'flex', flexDirection: 'column'
             }}>
+                
                 <Box sx={{ display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }}>
                     <Typography variant='h6'>{one}</Typography>
                     <Typography variant='subtitle1' sx={{ color: 'grey', margin: '0 10px' }}> paid </Typography>
