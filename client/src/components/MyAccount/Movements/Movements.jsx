@@ -20,7 +20,11 @@ const Movements = ({ id, one, two, amount }) => {
 
                 <Typography variant='subtitle2' sx={{ color: 'grey' }}>Payment: #{id}</Typography>
             </Box>
-            <Typography variant='h5' sx={{ color: 'red' }}>$ {amount}</Typography>
+            {
+                amount < 0 
+                ? <Typography variant='h5' sx={{ color: 'red' }}>$ {amount}</Typography>
+                : <Typography variant='h5' sx={{ color: 'green' }}>$ {amount}</Typography>
+            }
         </Box>
     )
 }

@@ -1,23 +1,28 @@
-import React, { useState } from 'react';
-import { Box, Paper, Stack, TextField, Typography, Button } from '@mui/material';
+import React, { useEffect, useState } from 'react';
+import { Box, Paper, TextField, Typography, Button } from '@mui/material';
 import homeImage from '../../assets/undraw_personal_settings_kihd.svg';
 import { useDispatch, useSelector } from 'react-redux';
-import { editUser } from '../../redux/actions/actions';
+import { editUser, getUsers } from '../../redux/actions/actions';
 
 const Home = () => {
 
   const user = useSelector(state => state.user)
+  
   const dispatch = useDispatch()
 
-  const name = localStorage.getItem("name")
-  const lastname = localStorage.getItem("lastname")
-  const email = localStorage.getItem("user")
+  // const name = localStorage.getItem("name")
+  // const lastname = localStorage.getItem("lastname")
+  // const email = localStorage.getItem("user")
+
+  useEffect(() => {
+    dispatch(getUsers())
+  }, [dispatch])
 
   const [input, setInput] = useState({
-    name: name,
-    lastname: lastname,
+    name: user?.name,
+    lastname: user?.lastname,
     phone: '',
-    email: email
+    email: user?.email
   })
 
   const handleChange = (e) => {
@@ -27,6 +32,7 @@ const Home = () => {
     })
   }
 
+  console.log(user.id)
   const handleSubmit = () => {
     dispatch(editUser(input))
   }
@@ -48,9 +54,7 @@ const Home = () => {
           <TextField id="outlined-basic" label="Lastname" variant="outlined" name='lastname' value={input.lastname} onChange={e => handleChange(e)} sx={{ margin: '10px 0' }} />
           <TextField id="outlined-basic" label="Email" variant="outlined" name='email' value={input.email} onChange={e => handleChange(e)} sx={{ margin: '10px 0' }} />
           <TextField id="outlined-basic" label="Phone" variant="outlined" name='phone' value={input.phone} onChange={e => handleChange(e)} sx={{ margin: '10px 0' }} />
-          {/* <form onSubmit={() => handleSubmit(e)}> */}
             <Button variant='contained' sx={{ margin: '10px 0' }} onClick={e => handleSubmit(e)}>Save</Button>
-          {/* </form> */}
         </Box>
       </Box>
     </Paper>

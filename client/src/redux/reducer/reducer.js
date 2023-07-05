@@ -1,4 +1,4 @@
-import { CREATE_BANK_ACCOUNT, DELETE_BANK_ACCOUNT, EDIT_USER, GET_ACCOUNTS, LOGIN, RESET_USER } from "../actions/constants"
+import { CREATE_BANK_ACCOUNT, DELETE_BANK_ACCOUNT, EDIT_USER, GET_ACCOUNTS, GET_USERS, LOGIN, RESET_USER } from "../actions/constants"
 
 const name = localStorage.getItem("name");
 const lastname = localStorage.getItem("lastname");
@@ -6,7 +6,8 @@ const user = localStorage.getItem("user");
 
 const initialState = {
     accounts: [],
-    user: { name: name, lastname: lastname, email: user, phone: '' }
+    users: [],
+    user: {},
 }
 
 
@@ -40,6 +41,11 @@ const rootReducer = (state = initialState, action) => {
             return {
                 ...state,
                 user: null
+            }
+        case GET_USERS:
+            return {
+                ...state,
+                users: action.payload
             }
         
         default:

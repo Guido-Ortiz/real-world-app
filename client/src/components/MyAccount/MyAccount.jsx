@@ -4,9 +4,9 @@ import Movements from './Movements/Movements';
 import SelectDate from './Select/Select';
 
 const movements = [
-    { id: 1, one: 'Edgar Johns', two: 'Arely Kertzman', amount: 259.71 },
+    { id: 1, one: 'Edgar Johns', two: 'Arely Kertzman', amount: -259.71 },
     { id: 2, one: 'Edgar Johns', two: 'Ibrahim Dickens', amount: 140.36 },
-    { id: 3, one: 'Ibrahim Dickens', two: 'Edgar Johns', amount: 363.14 },
+    { id: 3, one: 'Ibrahim Dickens', two: 'Edgar Johns', amount: -363.14 },
 ]
 
 const MyAccount = () => {

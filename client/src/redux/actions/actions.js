@@ -1,5 +1,5 @@
 import axios from "axios";
-import { CREATE_BANK_ACCOUNT, DELETE_BANK_ACCOUNT, EDIT_USER, GET_ACCOUNTS, LOGIN, RESET_USER } from "./constants";
+import { CREATE_BANK_ACCOUNT, DELETE_BANK_ACCOUNT, EDIT_USER, GET_ACCOUNTS, GET_USERS, LOGIN, RESET_USER } from "./constants";
 
 export function getAccounts(){
     return async function(dispatch){
@@ -52,21 +52,34 @@ export function resetUser(){
 }
 
 export function login(payload){
-    return async function(dispatch){
-        //const response = await axios.post('http://localhost:8081/my-project/api/user/create', payload)
-
-        const response = await axios.post('http://localhost:8081/my-project/api/user/create', {
-        
-            "name": "guido",
-            "lastname": "ortiz",
-            "email": "guglielmo@example.com",
-            "phone": "123456787"
-            })
-            console.log(response);
-        return response
-    }
-    // return {
-    //     type: LOGIN,
-    //     payload
+    // return async function(dispatch){
+    //     const response = await axios.post('http://localhost:8081/my-project/api/user/create', payload)
+    //     console.log(response.data);
+    //     return response.data
     // }
+    return async function(dispatch){
+        try{
+            const response = await axios.post('http://localhost:8081/my-project/api/user/create', payload)
+            return dispatch({
+                type: LOGIN,
+                payload: response.data
+            })
+        } catch(e){
+            console.log(e)
+        }
+    }
+}
+
+export function getUsers(){
+    return async function(dispatch){
+        try{
+            const response = await axios.get('http://localhost:8081/my-project/api/user/all')
+            return dispatch({
+                type: GET_USERS,
+                payload: response.data
+            })
+        } catch(e){
+            console.log(e)
+        }
+    }
 }
