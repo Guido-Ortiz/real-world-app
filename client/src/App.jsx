@@ -7,12 +7,11 @@ import BankAccounts from './components/BankAccounts/BankAccounts';
 import Sidebar from './components/Sidebar/Sidebar';
 import Topbar from './components/Topbar/Topbar';
 import { Stack } from '@mui/material';
+import MyAccount from './components/MyAccount/MyAccount';
 
 function App() {
 
   const location = useLocation()
-  console.log(location.pathname !== '/signup');
-
 
   return (
     <>
@@ -29,6 +28,7 @@ function App() {
                   <Route path='/' element={<ProtectedRoutes />}>
                     <Route path='/' element={<Home />} />
                     <Route path='bankaccounts' element={<BankAccounts />} />
+                    <Route path='/personal' element={<MyAccount />} />
                   </Route>
 
                 </Routes>

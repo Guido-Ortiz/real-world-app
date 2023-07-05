@@ -8,10 +8,22 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import LogoutIcon from '@mui/icons-material/Logout';
 import { Box, Typography } from '@mui/material';
 import User from './User/User';
+import AccountBalance from './AccountBalance/AccountBalance';
+import { makeStyles } from '@mui/styles';
+
+const useStyles = makeStyles((theme) => ({
+    box: {
+      '&:hover': {
+        cursor: 'pointer',
+      },
+    },
+  }));
 
 const Sidebar = () => {
 
     const navigate = useNavigate()
+
+    const classes = useStyles();
 
     const handleLogout = () => {
         localStorage.removeItem("logged_in")
@@ -21,15 +33,15 @@ const Sidebar = () => {
     return (
         <Box sx={{
             // border: '1px solid red', 
-            width: '250px', height: '100vh', borderRight: '1px solid grey', background: '#fff'
-        }}>
+            width: '250px', height: '100vh', borderRight: '1px solid grey', background: '#fff'}}>
             <User />
+            <AccountBalance />
             <SidebarItem item='Home' icon={<HomeIcon />} link='/' />
-            <SidebarItem item='My Account' icon={<PersonIcon />} link='/' />
+            <SidebarItem item='My Account' icon={<PersonIcon />} link='/personal' />
             <SidebarItem item='Bank Accounts' icon={<AccountBalanceIcon />} link='/bankaccounts' />
             <SidebarItem item='Notifications' icon={<NotificationsIcon />} link='/' />
 
-            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '50px', color: 'grey', padding: '8px', paddingLeft: '15px' }} onClick={handleLogout}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '50px', color: 'grey', padding: '8px', paddingLeft: '15px' }} onClick={handleLogout} className={classes.box}>
                 <LogoutIcon />
                 <Typography variant='h6' sx={{ marginLeft: '10px' }}>Logout</Typography>
             </Box>
