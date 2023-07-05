@@ -17,7 +17,7 @@ export function getAccounts(){
 
 export function createBankAccount(payload){
     // return async function(dispatch){
-    //     const response = await axios.post('url', payload)
+    //     const response = await axios.post('http://localhost:8081/my-project/api/user/create', payload)
     //     return response
     // }
     return{
@@ -52,8 +52,21 @@ export function resetUser(){
 }
 
 export function login(payload){
-    return {
-        type: LOGIN,
-        payload
+    return async function(dispatch){
+        //const response = await axios.post('http://localhost:8081/my-project/api/user/create', payload)
+
+        const response = await axios.post('http://localhost:8081/my-project/api/user/create', {
+        
+            "name": "guido",
+            "lastname": "ortiz",
+            "email": "guglielmo@example.com",
+            "phone": "123456787"
+            })
+            console.log(response);
+        return response
     }
+    // return {
+    //     type: LOGIN,
+    //     payload
+    // }
 }
