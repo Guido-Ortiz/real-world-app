@@ -6,10 +6,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
+import { Badge } from '@mui/material';
+import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
 
 const Topbar = () => {
   return (
-    <Box sx={{ border: '1px solid red', height: 'auto' }}>
+    <Box sx={{
+      // border: '1px solid red', 
+      height: 'auto'
+    }}>
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -24,8 +29,10 @@ const Topbar = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Real World App
           </Typography>
-          <Button color="inherit" variant='contained' sx={{ backgroundColor: 'green'}}>$ New</Button>
-          <Button color="inherit">Notifications</Button>
+          <Button color="inherit" variant='contained' sx={{ backgroundColor: 'green' }}>$ New</Button>
+          <Badge badgeContent={4} color="warning" sx={{ marginLeft: '10px' }}>
+            <NotificationsNoneIcon color="action" />
+          </Badge>
         </Toolbar>
       </AppBar>
     </Box>

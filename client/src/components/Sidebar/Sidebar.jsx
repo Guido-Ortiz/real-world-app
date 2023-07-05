@@ -10,7 +10,9 @@ import { Box, Typography } from '@mui/material';
 import User from './User/User';
 
 const Sidebar = () => {
+
     const navigate = useNavigate()
+
     const handleLogout = () => {
         localStorage.removeItem("logged_in")
         localStorage.removeItem("user")
@@ -19,7 +21,7 @@ const Sidebar = () => {
     return (
         <Box sx={{
             // border: '1px solid red', 
-            width: '250px', height: '100vh', borderRight: '1px solid grey'
+            width: '250px', height: '100vh', borderRight: '1px solid grey', background: '#fff'
         }}>
             <User />
             <SidebarItem item='Home' icon={<HomeIcon />} link='/' />
@@ -27,7 +29,7 @@ const Sidebar = () => {
             <SidebarItem item='Bank Accounts' icon={<AccountBalanceIcon />} link='/bankaccounts' />
             <SidebarItem item='Notifications' icon={<NotificationsIcon />} link='/' />
 
-            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '50px', color: 'grey', padding: '8px' }} onClick={handleLogout}>
+            <Box sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center', height: '50px', color: 'grey', padding: '8px', paddingLeft: '15px' }} onClick={handleLogout}>
                 <LogoutIcon />
                 <Typography variant='h6' sx={{ marginLeft: '10px' }}>Logout</Typography>
             </Box>

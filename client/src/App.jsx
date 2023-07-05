@@ -1,8 +1,5 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import ProtectedRoutes from './services/ProtectedRoutes';
@@ -13,19 +10,18 @@ import { Stack } from '@mui/material';
 
 function App() {
 
+  const location = useLocation()
+  console.log(location.pathname !== '/signup');
+
 
   return (
     <>
-
-
-      <BrowserRouter>
-
-
         <div>
-          <Stack direction='row'>
-            <Sidebar />
+          <Stack direction='row' sx={{ backgroundColor: 'rgb(246, 248, 250)'}}> 
+            { location.pathname !== "/signup" && <Sidebar /> }
             <Stack direction='column' sx={{ width: '100%' }}>
-              <Topbar />
+              { location.pathname !== '/signup' && <Topbar />}
+
                 <Routes>
 
                   <Route path='/signup' element={<Login />} />
@@ -36,28 +32,10 @@ function App() {
                   </Route>
 
                 </Routes>
+
             </Stack>
           </Stack>
         </div>
-
-
-        {/* <Routes>
-
-
-
-          <Route path='/signup' element={<Login />} />
-
-          <Route path='/' element={<ProtectedRoutes />}>
-
-            <Route path='/' element={<Home />} />
-            <Route path='bankaccounts' element={<BankAccounts />} />
-
-
-          </Route>
-
-        </Routes> */}
-
-      </BrowserRouter>
     </>
   )
 }
