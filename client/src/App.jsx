@@ -11,6 +11,7 @@ import MyAccount from './components/MyAccount/MyAccount';
 import Transfer from './components/Transfer/Transfer';
 import Notifications from './components/Notifications/Notifications';
 import CreateBankAccount from './components/BankAccounts/CreateBankAccount/CreateBankAccount';
+import Signup from './components/Signup/Signup';
 
 function App() {
 
@@ -18,30 +19,31 @@ function App() {
 
   return (
     <>
-        <div>
-          <Stack direction='row' sx={{ backgroundColor: 'rgb(246, 248, 250)'}}> 
-            { location.pathname !== "/signup" && <Sidebar /> }
-            <Stack direction='column' sx={{ width: '100%' }}>
-              { location.pathname !== '/signup' && <Topbar />}
+      <div>
+        <Stack direction='row' sx={{ backgroundColor: 'rgb(246, 248, 250)' }}>
+          {(location.pathname !== '/login' && location.pathname !== '/signup') && <Sidebar />}
+          <Stack direction='column' sx={{ width: '100%' }}>
+            {(location.pathname !== '/login' && location.pathname !== '/signup') && <Topbar />}
 
-                <Routes>
+            <Routes>
 
-                  <Route path='/signup' element={<Login />} />
+              <Route path='/login' element={<Login />} />
+              <Route path='/signup' element={<Signup />} />
 
-                  <Route path='/' element={<ProtectedRoutes />}>
-                    <Route path='/' element={<Home />} />
-                    <Route path='bankaccounts' element={<BankAccounts />} />
-                    <Route path='personal' element={<MyAccount />} />
-                    <Route path='transfer' element={<Transfer />} />
-                    <Route path='notifications' element={<Notifications />} />
-                    <Route path='bankaccounts/create' element={<CreateBankAccount />} />
-                  </Route>
+              <Route path='/' element={<ProtectedRoutes />}>
+                <Route path='/' element={<Home />} />
+                <Route path='bankaccounts' element={<BankAccounts />} />
+                <Route path='personal' element={<MyAccount />} />
+                <Route path='transfer' element={<Transfer />} />
+                <Route path='notifications' element={<Notifications />} />
+                <Route path='bankaccounts/create' element={<CreateBankAccount />} />
+              </Route>
 
-                </Routes>
+            </Routes>
 
-            </Stack>
           </Stack>
-        </div>
+        </Stack>
+      </div>
     </>
   )
 }

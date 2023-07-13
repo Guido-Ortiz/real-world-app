@@ -32,7 +32,6 @@ const Home = () => {
     })
   }
 
-  console.log(user.id)
   const handleSubmit = () => {
     dispatch(editUser(input))
   }
@@ -42,7 +41,7 @@ const Home = () => {
       // border: '1px solid red', 
       width: '70%', display: 'flex', flexDirection: 'column', justifyContent: 'flex-start', alignItems: 'flex-start', margin: '0 auto', marginTop: '30px', padding: '20px'
     }}>
-      <Typography variant='h5' sx={{ marginRight: '30px', color: '#1976d2' }}>User Settings</Typography>
+      <Typography variant='h5' sx={{ marginRight: '30px', color: '#1976d2', letterSpacing: '1px' }}>User Settings</Typography>
       <Box sx={{
         //border: '1px solid red', 
         display: 'flex', flexDirection: 'row', width: '100%' }}>
