@@ -2,6 +2,8 @@ package com.realworldback.project.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 public class User {
@@ -15,6 +17,9 @@ public class User {
     private String lastname;
     private String email;
     private String phone;
+
+//    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+//    private List<Account> accounts;
 
     //getters, and setters
 
