@@ -11,4 +11,5 @@ public interface IUserRepository {
     Optional<UserDto> getUserById(int idUser);
     UserDto createUser(UserDto user);
     void deleteUser(int idUser);
+    UserDto findByEmail(String email);
 }

@@ -43,8 +43,11 @@ public class UserRepository implements IUserRepository {
         userCrudRepository.deleteById(idUser);
     }
 
+    @Override
+    public UserDto findByEmail(String email) {
+        return mapper.toUserDto(userCrudRepository.findByEmail(email));
+    }
 
-    ;
 
 }
 
