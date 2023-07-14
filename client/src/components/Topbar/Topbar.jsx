@@ -7,8 +7,9 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MenuIcon from '@mui/icons-material/Menu';
 import { Badge, Tooltip } from '@mui/material';
-import NotificationsNoneIcon from '@mui/icons-material/NotificationsNone';
+import NotificationsIcon from '@mui/icons-material/Notifications';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/rwa-icon-logo.svg';
 
 const Topbar = () => {
   return (
@@ -18,26 +19,20 @@ const Topbar = () => {
     }}>
       <AppBar position="static">
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
+          {/* <IconButton size="large" edge="start" color="inherit" aria-label="menu" sx={{ mr: 2 }}>
             <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          </IconButton> */}
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, letterSpacing: "1.5px" }}>
             Real World App
           </Typography>
           <Link to='/transfer'>
-            <Button color="inherit" variant='contained' sx={{ backgroundColor: 'green', color: '#fff' }}>$ New</Button>
+            <Button color="inherit" variant='contained' sx={{ backgroundColor: 'green', color: '#fff', letterSpacing: '1px' }}>$ New</Button>
           </Link>
           <Tooltip title="Notifications">
             <Link to='/notifications'>
             <IconButton>
               <Badge badgeContent={4} color="warning" sx={{ marginLeft: '20px' }}>
-                <NotificationsNoneIcon color="action" />
+                <NotificationsIcon color="action" sx={{ color: '#fff' }} />
               </Badge>
             </IconButton>
             </Link>
