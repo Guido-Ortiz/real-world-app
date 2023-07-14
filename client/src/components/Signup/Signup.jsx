@@ -36,6 +36,7 @@ const Signup = () => {
             navigate('/login')
             //} else alert ('wrong credentials')
         // } else {
+            // console.log("alert");
         // }
     }
 
