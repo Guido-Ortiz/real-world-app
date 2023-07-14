@@ -1,7 +1,7 @@
 import './App.css'
-import { BrowserRouter, Route, Routes, useLocation } from 'react-router-dom';
-import Home from './components/Home/Home'
-import Login from './components/Login/Login'
+import { Route, Routes, useLocation } from 'react-router-dom';
+import Home from './components/Home/Home';
+import Login from './components/Login/Login';
 import ProtectedRoutes from './services/ProtectedRoutes';
 import BankAccounts from './components/BankAccounts/BankAccounts';
 import Sidebar from './components/Sidebar/Sidebar';

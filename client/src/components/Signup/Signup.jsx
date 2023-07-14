@@ -1,8 +1,9 @@
-import { Button, Paper, Stack, TextField, Typography } from '@mui/material'
+import { Button, Paper, Snackbar, Stack, TextField, Typography } from '@mui/material'
 import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Signup = () => {
+
     const [input, setInput] = useState({
         name: '',
         lastname: '',
@@ -10,6 +11,10 @@ const Signup = () => {
         password: '',
         conpass: ''
     })
+
+    const [openAlert, setOpenAlert] = useState(false)
+
+    const navigate = useNavigate()
 
     const handleChange = e => {
         setInput({
@@ -20,23 +25,28 @@ const Signup = () => {
 
     const handleLogin = async (e) => {
         e.preventDefault()
-        if (input.email === 'solera@solera.com' && input.password === 'bootcamp2') {
-            localStorage.setItem("user", 'solera@solera.com')
-            localStorage.setItem("name", input.name)
-            localStorage.setItem("lastname", input.lastname)
-            localStorage.setItem("logged_in", true)
-            await dispatch(login(input))
+        // if (input.email === 'solera@solera.com' && input.password === 'bootcamp2') {
+        //     localStorage.setItem("user", 'solera@solera.com')
+        //     localStorage.setItem("name", input.name)
+        //     localStorage.setItem("lastname", input.lastname)
+        //     localStorage.setItem("logged_in", true)
+        //     await dispatch(login(input))
+        // setOpenAlert(true)
+        alert("Succesfull sign up!")
             navigate('/login')
             //} else alert ('wrong credentials')
-        } else {
-            setOpenAlert(true)
-        }
+        // } else {
+        // }
+    }
+
+    const handleAlertClose = () => {
+        setOpenAlert(false)
     }
 
     return (
         <div style={{ width: '100%', height: '100vh', margin: '0 auto', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <Stack direction="column" spacing={2} sx={{ width: '40%', margin: '0 auto', background: '#fff', padding: '40px' }}>
-                <Typography variant="h2" sx={{ color: '#1976d2', textAlign: 'center' }}>Real World App</Typography>
+                <Typography variant="h2" sx={{ color: '#1976d2', textAlign: 'center', fontStyle: 'italic', fontWeight: 'bold' }}>Real World App</Typography>
                 <Typography variant="h4" sx={{ color: 'grey', textAlign: 'center' }}>Sign Up</Typography>
                 <TextField id="outlined-basic" label="First Name" variant="outlined" name='name' value={input.name} onChange={e => handleChange(e)} />
                 <TextField id="outlined-basic" label="Last Name" variant="outlined" name='lastname' value={input.lastname} onChange={e => handleChange(e)} />
@@ -47,6 +57,7 @@ const Signup = () => {
                 {/* <Typography variant='subtitle2' sx={{ color: "grey", letterSpacing: '1px' }}>
                     New to Real World App? <Link to='/signup' style={{color: '#1976d2', fontWeight: 'bold'}}>Sign up</Link> now.</Typography> */}
             </Stack>
+            <Snackbar open={openAlert} autoHideDuration={3000} onClose={handleAlertClose} message="Succesful Login" />
         </div>
     )
 }
